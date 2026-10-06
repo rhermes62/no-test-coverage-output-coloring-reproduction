@@ -1,29 +1,34 @@
 {
   "name": "no-test-coverage-output-coloring-reproduction",
   "version": "1.0.0",
-  "description": "Minimal Vite+ repo reproducing missing ANSI coloring in test coverage output",
   "private": true,
-  "type": "module",
-  "scripts": {
-    "test": "vp test",
-    "works:no-log": "vp run test",
-    "works:log-interleaved": "vp run --log interleaved test",
-    "broken:log-labeled": "vp run --log labeled test",
-    "broken:log-grouped": "vp run --log grouped test"
-  },
+  "description": "Minimal Vite+ repo reproducing missing ANSI coloring in test coverage output",
   "keywords": [],
-  "author": "",
+  "homepage": "https://github.com/rhermes62/no-test-coverage-output-coloring-reproduction#readme",
+  "bugs": {
+    "url": "https://github.com/rhermes62/no-test-coverage-output-coloring-reproduction/issues"
+  },
   "license": "ISC",
+  "author": "",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/rhermes62/no-test-coverage-output-coloring-reproduction.git"
   },
-  "bugs": {
-    "url": "https://github.com/rhermes62/no-test-coverage-output-coloring-reproduction/issues"
+  "type": "module",
+  "scripts": {
+    "check": "vp check",
+    "test": "vp test",
+    "works:no-log": "vp run test",
+    "works:log-interleaved": "vp run --log interleaved test",
+    "broken:log-labeled": "vp run --log labeled test",
+    "broken:log-grouped": "vp run --log grouped test",
+    "mock-build": "echo 'Building project...' && echo 'Bundling src/add.ts' && echo 'Bundling src/divide.ts' && echo 'Build complete.'",
+    "mock-release-vite-plus": "vp run --log labeled mock-release",
+    "mock-release-concurrently": "concurrently --names mock-build,check,test \"node --run mock-build\" \"node --run check\" \"node --run test\""
   },
-  "homepage": "https://github.com/rhermes62/no-test-coverage-output-coloring-reproduction#readme",
   "devDependencies": {
     "@vitest/coverage-v8": "^5.0.1",
+    "concurrently": "^10.0.5",
     "vite-plus": "^1.0.0"
   }
 }

@@ -26,13 +26,13 @@ npm install --legacy-peer-deps
 
 Every script runs the same underlying `test` script (`vp test`, Vitest with v8 coverage). Only the task runner's log mode differs.
 
-| Script | Command | Color |
-| --- | --- | --- |
-| `node --run test` | `vp test` | n/a — runs Vitest directly, no task runner |
-| `node --run works:no-log` | `vp run test` | preserved |
-| `node --run works:log-interleaved` | `vp run --log interleaved test` | preserved |
-| `node --run broken:log-labeled` | `vp run --log labeled test` | **stripped** |
-| `node --run broken:log-grouped` | `vp run --log grouped test` | **stripped** |
+| Script                             | Command                         | Color                                      |
+| ---------------------------------- | ------------------------------- | ------------------------------------------ |
+| `node --run test`                  | `vp test`                       | n/a — runs Vitest directly, no task runner |
+| `node --run works:no-log`          | `vp run test`                   | preserved                                  |
+| `node --run works:log-interleaved` | `vp run --log interleaved test` | preserved                                  |
+| `node --run broken:log-labeled`    | `vp run --log labeled test`     | **stripped**                               |
+| `node --run broken:log-grouped`    | `vp run --log grouped test`     | **stripped**                               |
 
 Use `node --run <script>` rather than `npm run <script>`. It execs the script directly instead of spawning an npm wrapper process, so there is one less layer of stdio piping between `vp` and the terminal — which matters when the thing under test is whether color survives the trip.
 
@@ -80,13 +80,13 @@ Same run, same percentages, every escape code gone. Note that Vitest's own outpu
 
 ## Environment
 
-| | |
-| --- | --- |
-| `vite-plus` | 1.0.0 |
-| Vitest | 5.0.1 |
-| `@vitest/coverage-v8` | 5.0.1 |
-| Node.js | 22.22.0 |
-| npm | 10.9.4 |
-| OS | macOS (Darwin 25.6.0, arm64) |
+|                       |                              |
+| --------------------- | ---------------------------- |
+| `vite-plus`           | 1.0.0                        |
+| Vitest                | 5.0.1                        |
+| `@vitest/coverage-v8` | 5.0.1                        |
+| Node.js               | 22.22.0                      |
+| npm                   | 10.9.4                       |
+| OS                    | macOS (Darwin 25.6.0, arm64) |
 
 Run `vp toolchain` and `vp env doctor` to capture the same for your machine.
