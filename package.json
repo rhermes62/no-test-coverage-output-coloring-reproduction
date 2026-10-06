@@ -1,0 +1,29 @@
+{
+  "name": "no-test-coverage-output-coloring-reproduction",
+  "version": "1.0.0",
+  "description": "Minimal Vite+ repo reproducing missing ANSI coloring in test coverage output",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "vp test",
+    "works:no-log": "vp run test",
+    "works:log-interleaved": "vp run --log interleaved test",
+    "broken:log-labeled": "vp run --log labeled test",
+    "broken:log-grouped": "vp run --log grouped test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rhermes62/no-test-coverage-output-coloring-reproduction.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rhermes62/no-test-coverage-output-coloring-reproduction/issues"
+  },
+  "homepage": "https://github.com/rhermes62/no-test-coverage-output-coloring-reproduction#readme",
+  "devDependencies": {
+    "@vitest/coverage-v8": "^5.0.1",
+    "vite-plus": "^1.0.0"
+  }
+}
